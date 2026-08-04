@@ -35,7 +35,7 @@ Google Colab with NVCC Compiler
 %load_ext nvcc4jupyter
 ```
 <img width="830" height="375" alt="image" src="https://github.com/user-attachments/assets/f65b49f8-fa79-4636-aa7c-b346e6d1feb8" />
-~~~
+~~~  
 %%cuda
 #include <cuda_runtime.h>
 #include <stdio.h>
