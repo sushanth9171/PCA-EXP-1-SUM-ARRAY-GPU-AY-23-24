@@ -35,10 +35,8 @@ Google Colab with NVCC Compiler
 %load_ext nvcc4jupyter
 ```
 <img width="830" height="375" alt="image" src="https://github.com/user-attachments/assets/f65b49f8-fa79-4636-aa7c-b346e6d1feb8" />
-```
- 
 %%cuda
-#include <cuda_runtime.h>
+#include <cuda_runtime.h> 
 #include <stdio.h>
 #include <sys/time.h>
 
@@ -181,13 +179,18 @@ void sumArraysOnHost(float *A, float *B, float *C, const int N)
         C[idx] = A[idx] + B[idx];
     }
 }
+
+
+
+
+
+
+//Write your device code here
 __global__ void sumArraysOnGPU(float *A, float *B, float *C, const int N)
 {
-    int i = blockIdx.x * blockDim.x + threadIdx.x;
-
-    if (i < N) C[i] = A[i] + B[i];
+    int i=blockIdx.x * blockDim.x + threadIdx.x;
+    if(i<N) C[i] = A[i] + B[i];
 }
-
 int main(int argc, char **argv)
 {
     printf("%s Starting...\n", argv[0]);
@@ -241,7 +244,7 @@ int main(int argc, char **argv)
     CHECK(cudaMemcpy(d_C, gpuRef, nBytes, cudaMemcpyHostToDevice));
 
     // invoke kernel at host side
-    int iLen = 512;
+    int iLen = 1023;
     dim3 block (iLen);
     dim3 grid  ((nElem + block.x - 1) / block.x);
 
@@ -274,9 +277,7 @@ int main(int argc, char **argv)
 
     return(0);
 }
-```
-## OUTPUT:
-<img width="808" height="205" alt="image" src="https://github.com/user-attachments/assets/d2a29c64-a5cf-465d-b310-a27f914ef201" />
+ 
 
 ## RESULT:
 Thus, Implementation of sum arrays on host and device is done in nvcc cuda using random number.
