@@ -29,12 +29,6 @@ Google Colab with NVCC Compiler
 6. Copy output data from the device to the host and verify the results against the host's sequential vector addition. Free memory on the host and the device.
 
 ## PROGRAM:
-```
-!nvidia-smi
-!pip install nvcc4jupyter
-%load_ext nvcc4jupyter
-```
-<img width="830" height="375" alt="image" src="https://github.com/user-attachments/assets/f65b49f8-fa79-4636-aa7c-b346e6d1feb8" />
 
 ```
 %%cuda
